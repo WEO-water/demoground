@@ -3,8 +3,8 @@
 	import 'leaflet/dist/leaflet.css';
 
 	const mapOptions = {
-		center: [1.364917, 103.822872],
-		zoom: 11
+		center: [49.59103292276794, 6.128027686709844],
+		zoom: 13
 	};
 	const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 	const tileLayerOptions = {
@@ -15,7 +15,7 @@
 	};
 </script>
 
-<div id="map" style="height: 80vh;">
+<div id="map" style="height:100vh;">
 	<LeafletMap options={mapOptions}>
 		<TileLayer url={tileUrl} options={tileLayerOptions} />
 	</LeafletMap>
@@ -24,6 +24,6 @@
 <style>
 	@import 'leaflet/dist/leaflet.css';
 	.map {
-		height: 800px;
+		height: 100%;
 	}
 </style>
