@@ -1,35 +1,16 @@
-<script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+<script lang="ts">
+	import { browser } from '$app/environment';
+	import { onMount } from 'svelte';
+
+	let LeafletContainer;
+
+	onMount(async () => {
+		if (browser) {
+			LeafletContainer = (await import('./LeafletContainer.svelte')).default;
+		}
+	});
 </script>
 
-<svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
-</svelte:head>
-
-<section>
-	<h1 class="text-3xl font-bold underline">
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
-</section>
-
-<style lang="postcss">
-  :global(html) {
-    background-color: theme(colors.red.100);
-  }
-</style>
+{#if browser}
+	<svelte:component this={LeafletContainer} />
+{/if}
