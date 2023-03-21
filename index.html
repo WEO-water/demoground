@@ -5,60 +5,108 @@
 		<link rel="icon" href="/demoground/favicon.png" />
 		<meta name="viewport" content="width=device-width" />
 		<meta http-equiv="content-security-policy" content="">
-		<link href="/demoground/_app/immutable/assets/_layout.fa9427ff.css" rel="stylesheet">
-		<link href="/demoground/_app/immutable/assets/_page.265a38f0.css" rel="stylesheet">
-		<link rel="modulepreload" href="/demoground/_app/immutable/entry/start.6c78936b.js">
-		<link rel="modulepreload" href="/demoground/_app/immutable/chunks/index.6eed8bf6.js">
-		<link rel="modulepreload" href="/demoground/_app/immutable/chunks/singletons.6a060af1.js">
-		<link rel="modulepreload" href="/demoground/_app/immutable/chunks/index.fe00b169.js">
-		<link rel="modulepreload" href="/demoground/_app/immutable/entry/app.1d1b366f.js">
-		<link rel="modulepreload" href="/demoground/_app/immutable/entry/_layout.svelte.a30eb44f.js">
-		<link rel="modulepreload" href="/demoground/_app/immutable/chunks/stores.c92a38a4.js">
-		<link rel="modulepreload" href="/demoground/_app/immutable/entry/_page.svelte.17293ae2.js">
+		<link href="/demoground/_app/immutable/assets/_layout.03cf2690.css" rel="stylesheet">
+		<link href="/demoground/_app/immutable/assets/LeafletContainer.65c7ddc0.css" rel="stylesheet">
+		<link rel="modulepreload" href="/demoground/_app/immutable/entry/start.1c89c4c0.js">
+		<link rel="modulepreload" href="/demoground/_app/immutable/chunks/index.f323693d.js">
+		<link rel="modulepreload" href="/demoground/_app/immutable/chunks/singletons.140fc6b9.js">
+		<link rel="modulepreload" href="/demoground/_app/immutable/chunks/paths.cf638b0b.js">
+		<link rel="modulepreload" href="/demoground/_app/immutable/entry/app.43962c31.js">
+		<link rel="modulepreload" href="/demoground/_app/immutable/chunks/preload-helper.41c905a7.js">
+		<link rel="modulepreload" href="/demoground/_app/immutable/entry/_layout.svelte.a2b074c0.js">
+		<link rel="modulepreload" href="/demoground/_app/immutable/entry/_page.svelte.3768c78e.js">
 		<link rel="modulepreload" href="/demoground/_app/immutable/entry/_page.ts.9c5eea7e.js">
-		<link rel="modulepreload" href="/demoground/_app/immutable/chunks/_page.da46b06b.js"><title>Home</title><!-- HEAD_svelte-t32ptj_START --><meta name="description" content="Svelte demo app"><!-- HEAD_svelte-t32ptj_END -->
+		<link rel="modulepreload" href="/demoground/_app/immutable/chunks/_page.da46b06b.js">
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">
 
 
-<div class="app svelte-8o1gnw"><header class="svelte-1u9z1tp"><div class="corner svelte-1u9z1tp"><a href="https://kit.svelte.dev" class="svelte-1u9z1tp"><img src="/demoground/_app/immutable/assets/svelte-logo.87df40b8.svg" alt="SvelteKit" class="svelte-1u9z1tp"></a></div>
 
-	<nav class="svelte-1u9z1tp"><svg viewBox="0 0 2 3" aria-hidden="true" class="svelte-1u9z1tp"><path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" class="svelte-1u9z1tp"></path></svg>
-		<ul class="svelte-1u9z1tp"><li class="svelte-1u9z1tp"><a href="/demoground/" class="svelte-1u9z1tp">Home</a></li>
-			<li class="svelte-1u9z1tp"><a href="/demoground/about" class="svelte-1u9z1tp">About</a></li></ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true" class="svelte-1u9z1tp"><path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" class="svelte-1u9z1tp"></path></svg></nav>
+<div>
+	<div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
+		<div class="fixed inset-0 bg-gray-600 bg-opacity-75"></div>
 
-	<div class="corner svelte-1u9z1tp"><a href="https://github.com/sveltejs/kit" class="svelte-1u9z1tp"><img src="/demoground/_app/immutable/assets/github.1ea8d62e.svg" alt="GitHub" class="svelte-1u9z1tp"></a></div>
-</header>
+		<div class="fixed inset-0 z-40 flex">
+			<div class="relative flex w-full max-w-xs flex-1 flex-col bg-white">
+				<div class="absolute top-0 right-0 -mr-12 pt-2"><button type="button" class="ml-1 flex h-10 w-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"><span class="sr-only">Close sidebar</span>
+						<svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg></button></div>
 
-	<main class="svelte-8o1gnw">
+				<div class="h-0 flex-1 overflow-y-auto pt-5 pb-4"><div class="flex flex-shrink-0 items-center px-4"><img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company"></div>
+					<nav class="mt-5 space-y-1 px-2">
+						<a href="#" class="bg-gray-100 text-gray-900 group flex items-center rounded-md px-2 py-2 text-base font-medium">
+							<svg class="text-gray-500 mr-4 h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"></path></svg>
+							Dashboard
+						</a>
 
-<section class="svelte-19xx0bt"><h1 class="svelte-19xx0bt"><span class="welcome svelte-19xx0bt"><picture><source srcset="/demoground/_app/immutable/assets/svelte-welcome.c18bcf5a.webp" type="image/webp">
-				<img src="/demoground/_app/immutable/assets/svelte-welcome.6c300099.png" alt="Welcome" class="svelte-19xx0bt"></picture></span>
+						<a href="#" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center rounded-md px-2 py-2 text-base font-medium"><svg class="text-gray-400 group-hover:text-gray-500 mr-4 h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"></path></svg>
+							Team
+						</a>
 
-		to your new<br>SvelteKit app
-	</h1>
+						<a href="#" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center rounded-md px-2 py-2 text-base font-medium"><svg class="text-gray-400 group-hover:text-gray-500 mr-4 h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"></path></svg>
+							Projects
+						</a>
 
-	<h2>try editing <strong>src/routes/+page.svelte</strong></h2>
+						<a href="#" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center rounded-md px-2 py-2 text-base font-medium"><svg class="text-gray-400 group-hover:text-gray-500 mr-4 h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"></path></svg>
+							Calendar
+						</a>
 
-	<div class="counter svelte-y96mxt"><button aria-label="Decrease the counter by one" class="svelte-y96mxt"><svg aria-hidden="true" viewBox="0 0 1 1" class="svelte-y96mxt"><path d="M0,0.5 L1,0.5" class="svelte-y96mxt"></path></svg></button>
+						<a href="#" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center rounded-md px-2 py-2 text-base font-medium"><svg class="text-gray-400 group-hover:text-gray-500 mr-4 h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 13.5h3.86a2.25 2.25 0 012.012 1.244l.256.512a2.25 2.25 0 002.013 1.244h3.218a2.25 2.25 0 002.013-1.244l.256-.512a2.25 2.25 0 012.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 00-2.15-1.588H6.911a2.25 2.25 0 00-2.15 1.588L2.35 13.177a2.25 2.25 0 00-.1.661z"></path></svg>
+							Documents
+						</a>
 
-	<div class="counter-viewport svelte-y96mxt"><div class="counter-digits svelte-y96mxt" style="transform: translate(0, 0%)"><strong class="hidden svelte-y96mxt" aria-hidden="true">1</strong>
-			<strong class="svelte-y96mxt">0</strong></div></div>
+						<a href="#" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center rounded-md px-2 py-2 text-base font-medium"><svg class="text-gray-400 group-hover:text-gray-500 mr-4 h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"></path></svg>
+							Reports
+						</a></nav></div>
+				<div class="flex flex-shrink-0 border-t border-gray-200 p-4"><a href="#" class="group block flex-shrink-0"><div class="flex items-center"><div><img class="inline-block h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""></div>
+							<div class="ml-3"><p class="text-base font-medium text-gray-700 group-hover:text-gray-900">Tom Cook
+								</p>
+								<p class="text-sm font-medium text-gray-500 group-hover:text-gray-700">View profile
+								</p></div></div></a></div></div>
 
-	<button aria-label="Increase the counter by one" class="svelte-y96mxt"><svg aria-hidden="true" viewBox="0 0 1 1" class="svelte-y96mxt"><path d="M0,0.5 L1,0.5 M0.5,0 L0.5,1" class="svelte-y96mxt"></path></svg></button>
-</div>
-</section></main>
+			<div class="w-14 flex-shrink-0"></div></div></div>
 
-	<footer class="svelte-8o1gnw"><p>visit <a href="https://kit.svelte.dev" class="svelte-8o1gnw">kit.svelte.dev</a> to learn SvelteKit</p></footer>
-</div>
+	
+	<div class="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
+		<div class="flex min-h-0 flex-1 flex-col border-r border-gray-200 bg-white"><div class="flex flex-1 flex-col overflow-y-auto pt-5 pb-4"><div class="flex flex-shrink-0 items-center px-4"><img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company"></div>
+				<nav class="mt-5 flex-1 space-y-1 bg-white px-2">
+					<a href="#" class="bg-gray-100 text-gray-900 group flex items-center rounded-md px-2 py-2 text-sm font-medium">
+						<svg class="text-gray-500 mr-3 h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"></path></svg>
+						Dashboard
+					</a>
+
+					<a href="#" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center rounded-md px-2 py-2 text-sm font-medium"><svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"></path></svg>
+						Team
+					</a>
+
+					<a href="#" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center rounded-md px-2 py-2 text-sm font-medium"><svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"></path></svg>
+						Projects
+					</a>
+
+					<a href="#" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center rounded-md px-2 py-2 text-sm font-medium"><svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"></path></svg>
+						Calendar
+					</a>
+
+					<a href="#" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center rounded-md px-2 py-2 text-sm font-medium"><svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 13.5h3.86a2.25 2.25 0 012.012 1.244l.256.512a2.25 2.25 0 002.013 1.244h3.218a2.25 2.25 0 002.013-1.244l.256-.512a2.25 2.25 0 012.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 00-2.15-1.588H6.911a2.25 2.25 0 00-2.15 1.588L2.35 13.177a2.25 2.25 0 00-.1.661z"></path></svg>
+						Documents
+					</a>
+
+					<a href="#" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center rounded-md px-2 py-2 text-sm font-medium"><svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"></path></svg>
+						Reports
+					</a></nav></div>
+			<div class="flex flex-shrink-0 border-t border-gray-200 p-4"><a href="#" class="group block w-full flex-shrink-0"><div class="flex items-center"><svg class="text-gray-400 group-hover:text-gray-500 mr-3 h-6 w-6 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 13.5h3.86a2.25 2.25 0 012.012 1.244l.256.512a2.25 2.25 0 002.013 1.244h3.218a2.25 2.25 0 002.013-1.244l.256-.512a2.25 2.25 0 012.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 00-2.15-1.588H6.911a2.25 2.25 0 00-2.15 1.588L2.35 13.177a2.25 2.25 0 00-.1.661z"></path></svg>
+						<div class="ml-3"><p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">Tom Chief</p>
+							<p class="text-xs font-medium text-gray-500 group-hover:text-gray-700">View profile
+							</p></div></div></a></div></div></div>
+	<div class="flex flex-1 flex-col lg:pl-64"><div class="sticky top-0 z-10 bg-gray-100 pl-1 pt-1 sm:pl-3 sm:pt-3 lg:hidden"><button type="button" class="-ml-0.5 -mt-0.5 inline-flex h-12 w-12 items-center justify-center rounded-md text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"><span class="sr-only">Open sidebar</span>
+				<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path></svg></button></div>
+		<main class="flex-1"><div class=""><div class="mx-auto "><main></main></div></div></main></div></div>
 
 
 			
 			<script>
 				{
-					__sveltekit_1m3wqt9 = {
+					__sveltekit_13ytsak = {
 						env: {},
 						assets: "/demoground",
 						base: "/demoground",
@@ -68,10 +116,10 @@
 					const data = [null,null];
 
 					Promise.all([
-						import("/demoground/_app/immutable/entry/start.6c78936b.js"),
-						import("/demoground/_app/immutable/entry/app.1d1b366f.js")
+						import("/demoground/_app/immutable/entry/start.1c89c4c0.js"),
+						import("/demoground/_app/immutable/entry/app.43962c31.js")
 					]).then(([kit, app]) => {
-						kit.start(app, __sveltekit_1m3wqt9.element, {
+						kit.start(app, __sveltekit_13ytsak.element, {
 							node_ids: [0, 2],
 							data,
 							form: null,
