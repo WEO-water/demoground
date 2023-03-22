@@ -1,5 +1,6 @@
 <script>
 	import { LeafletMap, TileLayer } from 'svelte-leafletjs';
+	import { layers } from '$lib/stores';
 	import 'leaflet/dist/leaflet.css';
 
 	const mapOptions = {
@@ -13,11 +14,16 @@
 		maxNativeZoom: 19,
 		attribution: '© OpenStreetMap contributors'
 	};
+	$layers = [...$layers, { name: 'Opentreet Maps', visible: true }];
 </script>
 
 <div id="map" style="height:100vh;">
 	<LeafletMap options={mapOptions}>
-		<TileLayer url={tileUrl} options={tileLayerOptions} />
+		{#each $layers as layer}
+			{#if layer.visible}
+				<TileLayer url={tileUrl} options={tileLayerOptions} />
+			{/if}
+		{/each}
 	</LeafletMap>
 </div>
 

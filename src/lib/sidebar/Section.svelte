@@ -9,7 +9,7 @@
 
 <section>
 	<button
-		class=" text-gray-900 group flex items-center rounded-md px-2 py-2 text-sm font-medium w-full hover:bg-gray-100"
+		class=" text-gray-900 group flex items-center rounded-md px-2 py-2 text-base font-large w-full hover:bg-gray-100"
 		on:click={toggleOpened}
 	>
 		<svg
