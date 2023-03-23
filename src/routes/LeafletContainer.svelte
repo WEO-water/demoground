@@ -2,7 +2,7 @@
 	import { LeafletMap, TileLayer } from 'svelte-leafletjs';
 	import { layers } from '$lib/stores';
 	import 'leaflet/dist/leaflet.css';
-
+	let leafletMap;
 	const mapOptions = {
 		center: [49.59103292276794, 6.128027686709844],
 		zoom: 13
@@ -17,8 +17,8 @@
 	$layers = [...$layers, { name: 'Opentreet Maps', visible: true }];
 </script>
 
-<div id="map" style="height:100vh;">
-	<LeafletMap options={mapOptions}>
+<div id="map">
+	<LeafletMap options={mapOptions} bind:this={leafletMap}>
 		{#each $layers as layer}
 			{#if layer.visible}
 				<TileLayer url={tileUrl} options={tileLayerOptions} />
@@ -29,7 +29,7 @@
 
 <style>
 	@import 'leaflet/dist/leaflet.css';
-	.map {
-		height: 100%;
+	#map {
+		height: 100vh;
 	}
 </style>
