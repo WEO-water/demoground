@@ -1,11 +1,11 @@
-import { type Readable, writable } from 'svelte/store';
+import { type Readable, writable, type Writable } from 'svelte/store';
 
 export interface Layer {
-    label: string;
-    hidden: boolean;
+    title: string;
+    visible: boolean;
 }
 
-export interface LayerStore extends Readable<Layer[]> {
+export interface LayerStore extends Writable<Layer[]> {
     addLayer: (layer: Layer) => void;
     reset: () => void;
 }
@@ -18,6 +18,8 @@ const initStore = (): LayerStore => {
 
     return {
         subscribe,
+        update,
+        set,
         addLayer: (newLayer: Layer) =>
             update((layers) => ([
                 ...layers,
