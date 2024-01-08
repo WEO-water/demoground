@@ -1,7 +1,7 @@
 <script lang="ts">
 	import AnimatedChevron from '$lib/icons/AnimatedChevron.svelte';
 
-	export let opened: boolean = false;
+	export let opened: boolean = true;
 
 	function toggleOpened() {
 		opened = !opened;

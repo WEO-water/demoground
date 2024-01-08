@@ -3,12 +3,14 @@
 	import { onMount } from 'svelte';
 	import Loader from '$lib/Loader.svelte';
 	import SidebarNavigation from '$lib/sidebar/SidebarNavigation.svelte';
+	import {init} from '$lib/init'
 
-	let LeafletContainer;
+	let LeafletContainer:any;
 
 	onMount(async () => {
 		if (browser) {
-			LeafletContainer = (await import('./LeafletContainer.svelte')).default;
+			LeafletContainer = (await import('$lib/leaflet/LeafletContainer.svelte')).default;
+			init()
 		}
 	});
 	let sidebarOpened: boolean = false;

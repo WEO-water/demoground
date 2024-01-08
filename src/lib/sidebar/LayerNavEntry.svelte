@@ -1,13 +1,13 @@
 <script lang="ts">
 	import Eye from '$lib/icons/Eye.svelte';
 	import EyeStrike from '$lib/icons/EyeStrike.svelte';
-	import { layers } from '$lib/stores';
+	import { layers } from '$lib/layerStore';
 	export let name: string = '';
 	export let visible: boolean = true;
 
 	function toggleVisibility() {
 		visible = !visible;
-		const nextlayers = $layers.map((p) => (p.name === name ? { ...p, visible: visible } : p));
+		const nextlayers = $layers.map((p) => (p.title === name ? { ...p, visible: visible } : p));
 		layers.update((l) => nextlayers);
 	}
 </script>
