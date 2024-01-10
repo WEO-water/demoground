@@ -12,7 +12,7 @@ export function init() {
     }
 
     const osmMap: OSMMapLayer = {
-        title: 'Opentreet Maps', visible: true, tileUrl: tileUrl, tileLayerOptions
+        type: 'OSM', title: 'Opentreet Maps', visible: true, tileUrl: tileUrl, tileLayerOptions
     }
     layers.addLayer(osmMap)
 }

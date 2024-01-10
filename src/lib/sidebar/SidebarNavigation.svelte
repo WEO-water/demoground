@@ -12,10 +12,23 @@
 	function addLayer() {
 		temporaryLayerVisible = true;
 	}
-
+	let closeNewLayerForm = () => {
+		temporaryLayerVisible = false;
+	}
 </script>
 
-<!-- Current: "bg-gray-100 text-gray-900", Default: "text-gray-600 hover:bg-gray-50 hover:text-gray-900" -->
+<section>
+	{#if !temporaryLayerVisible}
+		<button
+			class="inline-block rounded bg-white px-2 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+			on:click={addLayer}
+		>
+			Add layer
+		</button>
+	{:else}
+		<NewLayerForm on:message={closeNewLayerForm}/>
+	{/if}
+</section>
 <Section opened={true}>
 	<span slot="title" class="flex">
 		<StackFolders class="text-gray-500 mr-1 h-6 w-6 flex-shrink-0" />Layers
@@ -23,23 +36,8 @@
 	<ul class="list-disc">
 		{#each $layers as item}
 			<li>
-				<LayerNavEntry name={item.title} visible={item.visible} />
+				<LayerNavEntry name={item.title} visible={item.visible} removable={item.removable}/>
 			</li>
 		{/each}
-		{#if !temporaryLayerVisible}
-			<li> 
-				<button
-					class="group flex items-center rounded-md px-2 py-2 text-xs font-medium w-full hover:bg-gray-100"
-					on:click={addLayer}
-				>
-					<Plus class="w-4 h-4 mr-3 flex-shrink-0" />
-					Add layer
-				</button>
-			</li>
-		{:else}
-			<li>
-				<NewLayerForm />
-			</li>
-		{/if}
 	</ul>
 </Section>

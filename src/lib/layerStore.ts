@@ -1,17 +1,15 @@
 import { type Readable, writable, type Writable } from 'svelte/store';
+import type { MapLayer } from '$lib/types/MapLayer';
 
-export interface Layer {
-    title: string;
-    visible: boolean;
-}
 
-export interface LayerStore extends Writable<Layer[]> {
-    addLayer: (layer: Layer) => void;
+
+export interface LayerStore extends Writable<MapLayer[]> {
+    addLayer: (layer: MapLayer) => void;
     reset: () => void;
 }
 
 const initStore = (): LayerStore => {
-    const initialState: Layer[] = [];
+    const initialState: MapLayer[] = [];
 
     const { subscribe, set, update } =
         writable(initialState);
@@ -20,7 +18,7 @@ const initStore = (): LayerStore => {
         subscribe,
         update,
         set,
-        addLayer: (newLayer: Layer) =>
+        addLayer: (newLayer: MapLayer) =>
             update((layers) => ([
                 ...layers,
                 newLayer
