@@ -4,6 +4,7 @@
 	import Trash from '$lib/icons/Trash.svelte';
 	import { layers } from '$lib/layerStore';
 	export let name: string = '';
+	export let id: number;
 	export let visible: boolean = true;
 	export let removable: boolean = false;
 
@@ -13,9 +14,7 @@
 		layers.update((l) => nextlayers);
 	}
 	function removeLayer() {
-		visible = !visible;
-		const nextlayers = $layers.filter((p) => (p.title !== name));
-		layers.update((l) => nextlayers);
+		layers.removeLayer(id);
 	}
 </script>
 

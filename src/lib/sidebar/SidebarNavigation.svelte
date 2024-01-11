@@ -6,7 +6,6 @@
 	
 	import Plus from '$lib/icons/Plus.svelte';
 	import NewLayerForm from './NewLayerForm.svelte';
-	import type { OSMMapLayer } from '$lib/types/MapLayer';
 
 	export let temporaryLayerVisible: boolean = false;
 	function addLayer() {
@@ -36,7 +35,7 @@
 	<ul class="list-disc">
 		{#each $layers as item}
 			<li>
-				<LayerNavEntry name={item.title} visible={item.visible} removable={item.removable}/>
+				<LayerNavEntry id={item.id} name={item.title} visible={item.visible} removable={item.removable}/>
 			</li>
 		{/each}
 	</ul>

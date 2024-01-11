@@ -5,6 +5,7 @@ import type { MapLayer } from '$lib/types/MapLayer';
 
 export interface LayerStore extends Writable<MapLayer[]> {
     addLayer: (layer: MapLayer) => void;
+    removeLayer: (id: number) => void;
     reset: () => void;
 }
 
@@ -19,10 +20,22 @@ const initStore = (): LayerStore => {
         update,
         set,
         addLayer: (newLayer: MapLayer) =>
-            update((layers) => ([
-                ...layers,
-                newLayer
-            ])),
+            update((layers) => {
+                if (!newLayer.id) {
+                    newLayer.id = Math.floor(Math.random() * 100000)
+                }
+                if (!newLayer.position) {
+                    newLayer.position = layers.length + 1
+                }
+                return [
+                    ...layers,
+                    newLayer
+                ]
+            }),
+        removeLayer: (id: number) =>
+            update((layers) => {
+                return layers.filter((p) => (p.id !== id))
+            }),
         reset: () => set(initialState)
     };
 };

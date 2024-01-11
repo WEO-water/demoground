@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { transform } from '$lib/geo/geo-tools';
+	import { coordsToLatLng, transform } from '$lib/geo/geo-tools';
     import { layers } from '$lib/layerStore'
     import type {GEOJsonMapLayer, WFSMapLayer} from '$lib/types/MapLayer'
     import { createEventDispatcher } from 'svelte';
@@ -11,11 +11,11 @@
             action: 'close'
         });
     }
-	let title = '';
-    let url = '';
+	let title = 'T';
+    let url = 'https://api.weo-water.net/geoserver/wfs/vdl';
     let layerName = '';
-    let username = '';
-    let password = '';
+    let username = 'vdl_user';
+    let password = 'Pass12345!';
     let wfsFeatures = [];
     function validate() {
 		console.log("I'm the validate() function")
@@ -74,8 +74,34 @@
         let headers = new Headers()
         headers.set('Authorization', 'Basic ' + btoa(username + ":" + password))
         let response = await fetch(featureURL, {headers, method:'GET'}).then((response) => {return response.json()})
-        console.log(transform(response))
-        let newLayer:GEOJsonMapLayer = {type:'GEOJson', title: title, visible:true, data:transform(response), options:{}, removable:true}
+
+        const geojsonMarkerOptions = {
+            radius: 6,
+            fillColor: "#AAFF00",
+            color: "#000",
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.6
+        };
+        const geoJsonOptions = {
+            style: function(geoJsonFeature) {
+                return {};
+            },
+            onEachFeature: function(feature, layer) {
+            },
+            pointToLayer: function(feature, latlng) {
+                return L.circleMarker(latlng, geojsonMarkerOptions);
+            },
+            filter: function(feature) {
+                return feature.properties.id < 100000
+            },
+            coordsToLatLng: function(coords) {
+                let latLng = coordsToLatLng(coords)
+                return L.latLng(latLng[1], latLng[0])
+            }
+        };
+
+        let newLayer:GEOJsonMapLayer = {type:'GEOJson', title: title, visible:true, data:response, removable:true, options:geoJsonOptions}
         layers.addLayer(newLayer)
     }
     function buildWFSLayerURL(baseUrl:string, featureName:string):string{
