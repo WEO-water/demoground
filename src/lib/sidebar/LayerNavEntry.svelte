@@ -7,6 +7,7 @@
 	export let id: number;
 	export let visible: boolean = true;
 	export let removable: boolean = false;
+	export let color: string;
 
 	function toggleVisibility() {
 		visible = !visible;
@@ -16,6 +17,7 @@
 	function removeLayer() {
 		layers.removeLayer(id);
 	}
+
 </script>
 
 <div
@@ -37,5 +39,13 @@
 			<EyeStrike class="w-4 h-4 flex-shrink-0" />
 		{/if}
 	</button>
-	{name}
+	<div class="circle mr-1" style:background={color}></div>{name} 
 </div>
+
+<style>            
+    .circle {
+        border-radius: 50%;
+        width: 7px;
+        height: 7px;
+    }
+</style>

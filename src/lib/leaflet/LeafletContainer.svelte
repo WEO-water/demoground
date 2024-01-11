@@ -11,35 +11,7 @@
         geoJsonData = await response.json()
     });
 
-	var geojsonMarkerOptions = {
-		radius: 8,
-		fillColor: "#ff7800",
-		color: "#000",
-		weight: 1,
-		opacity: 1,
-		fillOpacity: 0.8
-	};
 
-    const geoJsonOptions = {
-        style: function(geoJsonFeature) {
-            console.log('style', geoJsonFeature);
-            return {};
-        },
-        onEachFeature: function(feature, layer) {
-            console.log('onEachFeature', feature, layer);
-        },
-		pointToLayer: function(feature, latlng) {
-			return L.circleMarker(latlng, geojsonMarkerOptions);
-		},
-		filter: function(feature) {
-			return feature.properties.id < 100000
-		},
-		coordsToLatLng: function(coords) {
-			console.log("coords", coords)
-			let latLng = coordsToLatLng(coords)
-			return L.latLng(latLng[1], latLng[0])
-		}
-    };
 
 	function featureSelect(event){
 		console.log(event.detail.sourceTarget.feature)
@@ -59,19 +31,24 @@
     });
 	
 
-
+	function compareByPosition(a, b) {
+		return a.position - b.position;
+	}
 </script>
 
 <div id="map">
 	<LeafletMap options={mapOptions} bind:this={leafletMap}>
-		{#each $layers as layer}
+		{#each $layers.sort(compareByPosition) as layer}
 			{#if layer.visible}
 				{#if layer.type == 'OSM'}
 					<TileLayer url={layer.tileUrl} options={layer.tileLayerOptions} />
 				{/if}
 				{#if layer.type == 'GEOJson'}
-					<GeoJSON data={layer.data} options={layer.options} events={['click', 'mouseover']} 
-		 on:click={featureSelect}/>
+					<GeoJSON 
+						data={layer.data} 
+						options={layer.options} 
+						events={['click', 'mouseover']} 
+		 				on:click={featureSelect}/>
 				{/if}
 			{/if}
 		{/each}
