@@ -1,25 +1,42 @@
 <script lang="ts">
 	import Eye from '$lib/icons/Eye.svelte';
 	import EyeStrike from '$lib/icons/EyeStrike.svelte';
+	import Trash from '$lib/icons/Trash.svelte';
 	import { layers } from '$lib/layerStore';
 	export let name: string = '';
 	export let visible: boolean = true;
+	export let removable: boolean = false;
 
 	function toggleVisibility() {
 		visible = !visible;
 		const nextlayers = $layers.map((p) => (p.title === name ? { ...p, visible: visible } : p));
 		layers.update((l) => nextlayers);
 	}
+	function removeLayer() {
+		visible = !visible;
+		const nextlayers = $layers.filter((p) => (p.title !== name));
+		layers.update((l) => nextlayers);
+	}
 </script>
 
-<button
-	class="group flex items-center rounded-md px-2 py-2 text-xs font-medium w-full hover:bg-gray-100"
-	on:click={toggleVisibility}
->
-	{#if visible}
-		<Eye class="w-4 h-4 mr-3 flex-shrink-0" />
+<div
+	class="group flex items-center rounded-md text-xs font-medium w-full"
+>		
+	{#if removable}
+		<button on:click={removeLayer} class="hover:bg-gray-200 p-1 rounded-md mr-1">
+			<Trash class="w-4 h-4 flex-shrink-0" />
+		</button>
 	{:else}
-		<EyeStrike class="w-4 h-4 mr-3 flex-shrink-0" />
+		<button disabled class=" p-1 rounded-md mr-1">
+			<Trash class="w-4 h-4 flex-shrink-0 text-gray-300" />
+		</button>
 	{/if}
+	<button on:click={toggleVisibility} class="hover:bg-gray-200 p-1 rounded-md mr-3">
+		{#if visible}
+			<Eye class="w-4 h-4  flex-shrink-0" />
+		{:else}
+			<EyeStrike class="w-4 h-4 flex-shrink-0" />
+		{/if}
+	</button>
 	{name}
-</button>
+</div>
