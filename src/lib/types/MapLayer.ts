@@ -1,4 +1,6 @@
 export type MapLayer = {
+    id: number
+    position: number
     type: string
     title: string
     visible: boolean

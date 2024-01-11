@@ -3,6 +3,7 @@
 	import { layers } from '$lib/layerStore';
 	import 'leaflet/dist/leaflet.css';
 	import { onMount } from 'svelte';
+	import { coordsToLatLng } from '$lib/geo/geo-tools';
     let geoJsonData;
 
     onMount(async () => {
@@ -34,8 +35,9 @@
 			return feature.properties.id < 100000
 		},
 		coordsToLatLng: function(coords) {
-			console.log(coords)
-			return L.latLng(coords[1], coords[0])
+			console.log("coords", coords)
+			let latLng = coordsToLatLng(coords)
+			return L.latLng(latLng[1], latLng[0])
 		}
     };
 
@@ -68,7 +70,7 @@
 					<TileLayer url={layer.tileUrl} options={layer.tileLayerOptions} />
 				{/if}
 				{#if layer.type == 'GEOJson'}
-					<GeoJSON data={layer.data} options={geoJsonOptions} events={['click', 'mouseover']} 
+					<GeoJSON data={layer.data} options={layer.options} events={['click', 'mouseover']} 
 		 on:click={featureSelect}/>
 				{/if}
 			{/if}
