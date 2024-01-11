@@ -6,37 +6,38 @@
 	
 	import Plus from '$lib/icons/Plus.svelte';
 	import NewLayerForm from './NewLayerForm.svelte';
+	import NewLayerButtons from './NewLayerButtons.svelte';
 
-	export let temporaryLayerVisible: boolean = false;
-	function addLayer() {
-		temporaryLayerVisible = true;
-	}
+	export let newLayerFormType: string;
+
 	let closeNewLayerForm = () => {
-		temporaryLayerVisible = false;
+		newLayerFormType = '';
+	}
+	let onAddLayer = (type:string) => {
+		newLayerFormType = type
+	}
+	function compareByPosition(a, b) {
+		return b.position - a.position;
 	}
 </script>
 
 <section>
-	{#if !temporaryLayerVisible}
-		<button
-			class="inline-block rounded bg-white px-2 py-1 text-xs font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-			on:click={addLayer}
-		>
-			Add layer
-		</button>
+	{#if !newLayerFormType}
+		<NewLayerButtons onAddLayer={(type) => {onAddLayer(type)}}/>
 	{:else}
+		<hr class="h-px my-1 bg-gray-200 border-0">
 		<NewLayerForm on:message={closeNewLayerForm}/>
 	{/if}
 </section>
-<Section opened={true}>
-	<span slot="title" class="flex">
-		<StackFolders class="text-gray-500 mr-1 h-6 w-6 flex-shrink-0" />Layers
-	</span>
+
+<section>
+	<hr class="h-px my-2 bg-gray-200 border-0 ">
+	<div class="text-xs font-semibold leading-6 text-gray-800">Layers</div>
 	<ul class="list-disc">
-		{#each $layers as item}
+		{#each $layers.sort(compareByPosition) as item}
 			<li>
-				<LayerNavEntry id={item.id} name={item.title} visible={item.visible} removable={item.removable}/>
+				<LayerNavEntry id={item.id} name={item.title} visible={item.visible} removable={item.removable} color={item.color}/>
 			</li>
 		{/each}
 	</ul>
-</Section>
+</section>

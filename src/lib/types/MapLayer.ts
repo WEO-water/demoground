@@ -19,6 +19,9 @@ export interface WFSMapLayer extends MapLayer {
 }
 
 export interface GEOJsonMapLayer extends MapLayer {
+    orgLayerTitle: string
+    featureCount: number
     data: any
     options: any
+    color: any
 }
