@@ -6,12 +6,6 @@
 	import { coordsToLatLng } from '$lib/geo/geo-tools';
     let geoJsonData;
 
-    onMount(async () => {
-        const response = await fetch('example.geojson')
-        geoJsonData = await response.json()
-    });
-
-
 
 	function featureSelect(event){
 		console.log(event.detail.sourceTarget.feature)
@@ -28,11 +22,20 @@
 			// Find Layer and get features
 			const map = leafletMap.getMap()
 		});
+		leafletMap.getMap().on("layeradd", function(e) {
+			// Find Layer and get features
+			console.log("LAyer Added", e)
+		});
+		console.log(leafletMap)
+		console.log(leafletMap.getMap().getPanes())
+		console.log(leafletMap.getMap().eachLayer((layer) => {
+			console.log(layer)
+		}))
     });
 	
 
 	function compareByPosition(a, b) {
-		return a.position - b.position;
+		return b.position - a.position;
 	}
 </script>
 
