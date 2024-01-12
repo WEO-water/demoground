@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { coordsToLatLng, transform } from '$lib/geo/geo-tools';
-    import { layers } from '$lib/layerStore'
+    import { layers } from '$lib/stores/layerStore'
     import type {GEOJsonMapLayer, WFSMapLayer} from '$lib/types/MapLayer'
     import { createEventDispatcher } from 'svelte';
 
@@ -87,30 +87,9 @@
         headers.set('Authorization', 'Basic ' + btoa(username + ":" + password))
         let response = await fetch(featureURL, {headers, method:'GET'}).then((response) => {return response.json()})
 
-        const geojsonMarkerOptions = {
-            radius: 6,
-            fillColor: "#AAFF00",
-            color: "#000",
-            weight: 1,
-            opacity: 1,
-            fillOpacity: 0.6
-        };
+
         const geoJsonOptions = {
-            style: function(geoJsonFeature) {
-                return {};
-            },
-            onEachFeature: function(feature, layer) {
-            },
-            pointToLayer: function(feature, latlng) {
-                return L.circleMarker(latlng, geojsonMarkerOptions);
-            },
-            filter: function(feature) {
-                return feature.properties.id < 100000
-            },
-            coordsToLatLng: function(coords) {
-                let latLng = coordsToLatLng(coords)
-                return L.latLng(latLng[1], latLng[0])
-            }
+
         };
         title = feature.title
         selectedLayer = {id: 0, position:0, featureCount: response.features.length, orgLayerTitle:feature.title, type:'GEOJson', title: title, visible:true, data:response, removable:true, options:geoJsonOptions, color: ''}     
@@ -126,9 +105,10 @@
         };
         const geoJsonOptions = {
             style: function(geoJsonFeature) {
-                return {};
+                return geojsonMarkerOptions;
             },
             onEachFeature: function(feature, layer) {
+
             },
             pointToLayer: function(feature, latlng) {
                 return L.circleMarker(latlng, geojsonMarkerOptions);

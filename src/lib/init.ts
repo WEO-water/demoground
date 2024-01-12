@@ -1,4 +1,4 @@
-import { layers } from '$lib/layerStore';
+import { layers } from '$lib/stores/layerStore';
 import type { OSMMapLayer } from '$lib/types/MapLayer';
 
 

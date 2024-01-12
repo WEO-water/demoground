@@ -1,14 +1,25 @@
 <script lang="ts">
 	import { LeafletMap, TileLayer, GeoJSON } from 'svelte-leafletjs';
-	import { layers } from '$lib/layerStore';
+	import { layers } from '$lib/stores/layerStore';
 	import 'leaflet/dist/leaflet.css';
 	import { onMount } from 'svelte';
-	import { coordsToLatLng } from '$lib/geo/geo-tools';
+	import { L } from 'leaflet';
+	import { selectedFeature } from '$lib/stores/selectedFeatureStore';
+	import type { FeatureMetaInformation } from '$lib/types/FeatureMetaInformation';
     let geoJsonData;
 
 
 	function featureSelect(event){
-		console.log(event.detail.sourceTarget.feature)
+		let prevStyle = { ...event.detail.layer.defaultOptions}
+
+		const feature: FeatureMetaInformation = {
+			id:event.detail.sourceTarget.feature.id,
+			properties: event.detail.sourceTarget.feature.properties,
+			originalStyle: prevStyle,
+			layer: event.detail.layer
+		}
+		selectedFeature.addSelectedFeature(feature);
+		L.geoJson(event.detail.sourceTarget.feature).addTo(leafletMap.getMap());
 	}
 
 	let leafletMap;

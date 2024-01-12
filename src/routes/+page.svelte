@@ -4,6 +4,7 @@
 	import Loader from '$lib/Loader.svelte';
 	import SidebarNavigation from '$lib/sidebar/SidebarNavigation.svelte';
 	import {init} from '$lib/init'
+	import SelectedFeatureInformation from '$lib/meta/SelectedFeatureInformation.svelte';
 
 	let LeafletContainer:any;
 
@@ -88,18 +89,11 @@
 							</button>
 						</div>
 
-						<div class="h-0 flex-1 overflow-y-auto pt-5 pb-4">
-							<div class="flex flex-shrink-0 items-center px-4">
-								<img
-									class="h-8 w-auto"
-									src="https://www.weo-water.com/wp-content/uploads/2023/03/weo-logo_web.png"
-									alt="WEO Water Logo"
-								/>
-							</div>
-							<nav class="mt-5 space-y-1 px-2">
-								<SidebarNavigation />
-							</nav>
-						</div>
+<div class="flex flex-col h-screen justify-between">
+  <header class="h-10 bg-red-500">Header</header>
+  <main class="mb-auto h-10 bg-green-500">Content</main>
+  <footer class="h-10 bg-blue-500">Footer</footer>
+</div>
 					</div>
 
 					<div class="w-14 flex-shrink-0">
@@ -112,17 +106,20 @@
 			<div class="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
 				<!-- Sidebar component, swap this element with another sidebar if you like -->
 				<div class="flex min-h-0 flex-1 flex-col border-r border-gray-200 bg-white">
-					<div class="flex flex-1 flex-col overflow-y-auto pt-5 pb-4">
-						<div class="flex flex-shrink-0 items-center px-4 ">
+					<div class="flex flex-col h-screen justify-between">
+						<div class="h-10 p-1">
 							<img
 								class="h-8 w-auto"
 								src="https://www.weo-water.com/wp-content/uploads/2023/03/weo-logo_web.png"
 								alt="WEO Water Logo"
 							/>
 						</div>
-						<nav class="mt-5 flex-1 space-y-1 bg-white px-2">
+						<main class="mb-auto mt-5 ">
 							<SidebarNavigation />
-						</nav>
+						</main>
+						<section class=" ">
+							<SelectedFeatureInformation />
+						</section>
 					</div>
 				</div>
 			</div>
