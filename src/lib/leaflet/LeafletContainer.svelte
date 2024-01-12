@@ -11,7 +11,6 @@
 		console.log(event.detail.sourceTarget.feature)
 	}
 
-
 	let leafletMap;
 	const mapOptions = {
 		center: [49.59103292276794, 6.128027686709844],
@@ -22,15 +21,15 @@
 			// Find Layer and get features
 			const map = leafletMap.getMap()
 		});
-		leafletMap.getMap().on("layeradd", function(e) {
-			// Find Layer and get features
-			console.log("LAyer Added", e)
-		});
-		console.log(leafletMap)
-		console.log(leafletMap.getMap().getPanes())
-		console.log(leafletMap.getMap().eachLayer((layer) => {
-			console.log(layer)
-		}))
+		// leafletMap.getMap().on("layeradd", function(e) {
+		// 	// Find Layer and get features
+		// 	console.log("LAyer Added", e)
+		// });
+		// console.log(leafletMap)
+		// console.log(leafletMap.getMap().getPanes())
+		// console.log(leafletMap.getMap().eachLayer((layer) => {
+		// 	console.log(layer)
+		// }))
     });
 	
 
