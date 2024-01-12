@@ -2,7 +2,7 @@
 	import Eye from '$lib/icons/Eye.svelte';
 	import EyeStrike from '$lib/icons/EyeStrike.svelte';
 	import Trash from '$lib/icons/Trash.svelte';
-	import { layers } from '$lib/layerStore';
+	import { layers } from '$lib/stores/layerStore';
 	export let name: string = '';
 	export let id: number;
 	export let visible: boolean = true;
