@@ -32,6 +32,9 @@
 			// Find Layer and get features
 			const map = leafletMap.getMap()
 		});
+		leafletMap.getMap().createPane('layer1');
+		leafletMap.getMap().getPane('layer1').style.zIndex = 401;
+		console.log(leafletMap.getMap().getPanes())
 		// leafletMap.getMap().on("layeradd", function(e) {
 		// 	// Find Layer and get features
 		// 	console.log("LAyer Added", e)
@@ -42,7 +45,36 @@
 		// 	console.log(layer)
 		// }))
     });
+
+	$: $layers, reorder();
+
+	function reorder(){
+		if ($layers.length > 0) {
+			$layers.sort(compareByPosition).forEach((lay) => {
+				console.log("Layer", lay.title)
+				if(lay.leafletLayerObj) {
+					console.log("Layer bringtofront")
+					// lay.leafletLayerObj.bringToFront()
+				}
+				
+			})
+		}
+		
+	}
 	
+	function onLayerAdd(ev: CustomEvent) {
+		if (!ev.detail.layer.feature){
+			
+			console.log("new layer", ev)
+		}
+	}
+
+	function onOverlayAdd(ev: CustomEvent) {
+		// if (!ev.detail.layer.feature){
+			
+		console.log("new overlay", ev)
+		// }
+	}
 
 	function compareByPosition(a, b) {
 		return b.position - a.position;
@@ -50,18 +82,20 @@
 </script>
 
 <div id="map">
-	<LeafletMap options={mapOptions} bind:this={leafletMap}>
+	<LeafletMap options={mapOptions} bind:this={leafletMap} events={['overlayadd', 'layeradd']} on:layeradd={onLayerAdd} on:overlayadd={onOverlayAdd} >
 		{#each $layers.sort(compareByPosition) as layer}
 			{#if layer.visible}
 				{#if layer.type == 'OSM'}
-					<TileLayer url={layer.tileUrl} options={layer.tileLayerOptions} />
+					<TileLayer url={layer.tileUrl} options={layer.tileLayerOptions} bind:this={layer.leafletLayerObj} />
 				{/if}
 				{#if layer.type == 'GEOJson'}
 					<GeoJSON 
 						data={layer.data} 
 						options={layer.options} 
 						events={['click', 'mouseover']} 
-		 				on:click={featureSelect}/>
+		 				on:click={featureSelect}
+						bind:this={layer.leafletLayerObj}
+					/>
 				{/if}
 			{/if}
 		{/each}

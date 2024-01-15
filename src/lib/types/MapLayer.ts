@@ -5,6 +5,7 @@ export type MapLayer = {
     title: string
     visible: boolean
     removable: boolean
+    leafletLayerObj: any|null
 };
 
 export interface OSMMapLayer extends MapLayer {

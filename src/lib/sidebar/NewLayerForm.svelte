@@ -108,9 +108,10 @@
                 return geojsonMarkerOptions;
             },
             onEachFeature: function(feature, layer) {
-
+                // console.log("Each Feature, ", feature)
             },
             pointToLayer: function(feature, latlng) {
+                // console.log("pointToLayer, ", feature)
                 return L.circleMarker(latlng, geojsonMarkerOptions);
             },
             filter: function(feature) {
