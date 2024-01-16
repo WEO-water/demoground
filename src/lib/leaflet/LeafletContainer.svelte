@@ -11,7 +11,9 @@
 
 	function featureSelect(event){
 		let prevStyle = { ...event.detail.layer.defaultOptions}
-
+		if (event.detail.layer.options && event.detail.layer.options.style instanceof Function) {
+			prevStyle = { ... event.detail.layer.options.style()}
+		}
 		const feature: FeatureMetaInformation = {
 			id:event.detail.sourceTarget.feature.id,
 			properties: event.detail.sourceTarget.feature.properties,
